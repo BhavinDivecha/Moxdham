@@ -42,11 +42,31 @@
 		}
 		</style>
 </head>
-<body>
+<body onload="loadingPage()" style="margin:0;">
+
+    <!-- Loading Page Start -->
+    <div id="loader">
+        <script>
+            var myVar;
+            
+            function loadingPage() {
+              myVar = setTimeout(showPage, 3000);
+            }
+            
+            function showPage() {
+              document.getElementById("loader").style.display = "none";
+              document.getElementById("wrapper").style.display = "block";
+            }
+            </script>
+        <center>
+        <img src="https://www.downloadclipart.net/thumb/namaste-png-hd.png" width="50" height="50"alt=""><strong>Moxdham</strong>
+        </center>
+    </div>
+    <!-- Loading Page End -->
 	<!--[if lt IE 8]>
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-	<div class="wrapper">
+	<div class="wrapper" id="wrapper" style="display:none;" >
 		<!--Header Area Start-->
 		<header>
 		    <div class="header-container">
@@ -71,7 +91,7 @@
                                     <nav>
                                         <ul>
                                             <li class="active"><a href="index.html">HOME</i></a></li>
-                                            <li><a href="#">HINDU</a></li>
+                                            <li><a href="Hindu.html">HINDU</a></li>
                                             <li><a href="#">JAIN</a></li>
                                             <li><a href="#">SWAMINARAYAN</a></li>
                                             <li><a href="#">KACHHI</a></li>
@@ -140,12 +160,12 @@
 		    <div class="container">
 		        <div class="row">
                     <!--Section Title Start-->
-		            <div class="col-12">
+		            <!-- <div class="col-12">
 		                <div class="section-title mb-50 text-center">
 		                    <h2>Featured products</h2>
 		                    <p>Browse the collection of our best selling and top interesting products</p>
 		                </div>
-		            </div>
+		            </div> -->
 		            <!--Section Title End-->
 		            <!--Product Start-->
 		            <div class="col-12">
@@ -153,12 +173,12 @@
 							<div class="col-12 col-md-6 col-xl-4">
 								<div class="arubic-single-product">
 									<div class="product-img">
-										<a href="#">
+										<a href="Hindu.html">
 											<img class="first-img" src="img/gods/hindu.png" alt="">
 										</a>
 									</div>
 									<div class="product-content">
-										<center><h4><a href="#">HINDU</a></h4></center>
+										<center><h4><a href="Hindu.html">HINDU</a></h4></center>
 									</div>
 								</div>
 							</div>
@@ -283,17 +303,17 @@
 		<footer>
 		    <div class="footer-container">
 		        <!--Footer Top Area Start-->
-		        <div class="footer-top-area ptb-90 text-center">
+		        <!-- <div class="footer-top-area ptb-90 text-center">
 		            <div class="container">
 		                <div class="row">
 		                    <div class="col-lg-10 offset-lg-1 col-12">
-                                <!--Footer Logo Start-->
+                                Footer Logo Start
 		                        <div class="footer-logo">
 		                            <a href="index.html"><img src="https://www.downloadclipart.net/thumb/namaste-png-hd.png" alt=""></a>
 		                        </div>
-		                        <!--Footer Logo End-->
-		                        <!--Footer Nav Start-->
-		                        <!-- <div class="footer-nav">
+		                        Footer Logo End
+		                        Footer Nav Start
+		                        <div class="footer-nav">
 		                            <nav>
 		                                <ul>
 		                                    <li><a href="#">HINDU</a></li>
@@ -304,9 +324,9 @@
 		                                    <li><a href="about.html">MARATHI</a></li>
 		                                </ul>
 		                            </nav>
-		                        </div> -->
-		                        <!--Footer Nav End-->
-		                        <!--Footer Social Icon Start-->
+		                        </div>
+		                        Footer Nav End
+		                        Footer Social Icon Start
 		                        <div class="footer-social">
 		                            <ul>
 		                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -316,8 +336,8 @@
 		                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
 		                            </ul>
 		                        </div>
-		                        <!--Footer Social Icon End-->
-		                        <!--Footer Newsletter Start
+		                        Footer Social Icon End
+		                        Footer Newsletter Start
 								<div class="footer-newsletter">
 		                            Newsletter Form
                                    <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="popup-subscribe-form validate" target="_blank" novalidate>
@@ -329,11 +349,11 @@
                                        </div>
                                    </form>
 		                        </div>
-								Footer Newsletter End-->
+								Footer Newsletter End
 		                    </div>
 		                </div>
 		            </div>
-		        </div>
+		        </div> -->
 		        <!--Footer Top Area End-->
 		        <!--Footer Bottom Area Start-->
 		        <div class="footer-bottom-area">

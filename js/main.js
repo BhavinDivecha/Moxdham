@@ -15,6 +15,7 @@
 /*---------------------------------
     1. Mean Menu Active
 -----------------------------------*/
+
 jQuery('.header-menu-area nav').meanmenu({
     meanMenuContainer: '.mobile-menu',
     meanScreenWidth: "991"
@@ -97,6 +98,7 @@ if ($(this).scrollTop() >50){
         
         
     }, 5);
+
 /*----------------------------
     6. Owl Active
 ------------------------------ */
