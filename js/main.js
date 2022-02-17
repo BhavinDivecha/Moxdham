@@ -93,11 +93,17 @@ if ($(this).scrollTop() >50){
 
         // $('.header-sticky').addClass("is-sticky");
         var video = document.querySelector('video');
-        video.muted = true;
+        // video.muted = true;
         video.play()
+
+                // $('.header-sticky').addClass("is-sticky");
+                var audio = document.querySelector('audio');
+                // video.muted = true;
+                audio.play()
         
-        
+
     }, 5);
+
 
 /*----------------------------
     6. Owl Active
