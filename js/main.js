@@ -91,10 +91,8 @@ if ($(this).scrollTop() >50){
     window.setTimeout(function () {
 
         // $('.header-sticky').addClass("is-sticky");
-        var video = document.querySelector('audio');
+        var video = document.querySelector('video');
         video.muted = true;
-
-
         video.play()
         
         
