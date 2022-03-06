@@ -1781,7 +1781,7 @@ Common Style CSS
 .mobile-menu .mean-bar .mean-nav > ul {
   margin-bottom: 30px;
   border: 1px solid #eeeeee;
-  border-top: 0px solid transparent;
+  /* border-top: 0px solid transparent; */
   overflow-x: hidden;
 }
 @media only screen and (max-width: 767px) {
@@ -1792,7 +1792,7 @@ Common Style CSS
 }
 @media only screen and (max-width: 479px) {
   .mobile-menu .mean-bar .mean-nav > ul {
-    max-height: 220px;
+    max-height: 400px;
     overflow-y: auto;
   }
 }
