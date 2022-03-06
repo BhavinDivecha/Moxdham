@@ -41,3 +41,7 @@
 .banner-image-bottom {
   object-position: bottom center !important;
 }
+
+.list-group-item.active {
+  color: white !important;
+}
