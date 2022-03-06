@@ -45,3 +45,7 @@
 .list-group-item.active {
   color: white !important;
 }
+
+.text-justify {
+  text-align: justify;
+}
