@@ -389,7 +389,7 @@
 /* small mobile :320px. */
 @media (max-width: 767px) {
   .container {
-    width: 300px;
+    width: auto;
   }
   /*home-1 page css*/
   blockquote {
