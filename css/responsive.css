@@ -390,7 +390,7 @@
 @media (max-width: 767px) {
   .container {
     width: auto;
-    max-width: 325px;
+    max-width: 350px;
   }
   /*home-1 page css*/
   blockquote {
