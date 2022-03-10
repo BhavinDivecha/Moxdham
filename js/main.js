@@ -83,9 +83,11 @@ $( '.shoppingcart-search-item > ul > li > a' ).on('click', function(e) {
 $(window).scroll(function() {
 if ($(this).scrollTop() >50){  
     $('.header-sticky').addClass("is-sticky");
+    $('.menu').addClass("is-sticky-hide");
   }
   else{
     $('.header-sticky').removeClass("is-sticky");
+    $('.menu').removeClass("is-sticky-hide");
   }
 });
     

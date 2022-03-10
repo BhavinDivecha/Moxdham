@@ -22,6 +22,9 @@
   .hero-slider-content-2 {
     padding-left: 20px;
   }
+  .menu-text {
+    color: black;
+  }
 }
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -33,6 +36,9 @@
   blockquote::before {
     left: 5%;
     top: 15%;
+  }
+  .menu-text {
+    color: black;
   }
   .ht-dropdown {
     left: auto;
@@ -190,6 +196,12 @@
   blockquote {
     padding: 60px 90px;
     padding-left: 90px;
+  }
+  .menu {
+    background-color: rgb(255, 255, 255);
+  }
+  .menu-text {
+    color: rgb(0, 0, 0);
   }
   blockquote::before {
     left: 5%;
@@ -386,6 +398,10 @@
     padding-right: 15px;
   }
 }
+.logo {
+  text-align: center;
+  padding: 15px 0 10px;
+}
 /* small mobile :320px. */
 @media (max-width: 767px) {
   .container {
@@ -438,10 +454,7 @@
   .sidebar-search-input form .form-search input {
     width: 250px;
   }
-  .logo {
-    text-align: center;
-    padding: 15px 0 10px;
-  }
+
   .item-total {
     top: 5px;
   }
