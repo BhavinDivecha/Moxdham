@@ -2716,6 +2716,25 @@ Slider Style 4 CSS
 .product-img > a {
   display: block;
 }
+a:focus,
+a:hover {
+  color: #ff7900;
+  text-decoration: none;
+}
+a,
+button,
+input {
+  outline: medium none;
+  color: #434343;
+}
+.product-img > a > img {
+  width: 100%;
+  height: 207px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  object-fit: cover;
+  object-position: top;
+}
 .product-img > a > img {
   width: 100%;
   -webkit-transition: all 0.3s ease-in-out;
@@ -4080,6 +4099,21 @@ h4.small-title {
   font-size: 13px;
   line-height: 1;
   color: #000000;
+}
+.home {
+  margin-bottom: 60px;
+}
+.home .box .box-header {
+  margin-bottom: 15px !important;
+  border-left-width: 2px !important;
+  padding-left: 25px !important;
+  border-left-color: #00c96d !important;
+  border-left-style: solid !important;
+}
+.separator {
+  margin-bottom: 15px;
+  background-color: #eeeeee;
+  height: 1px;
 }
 .footer-bottom-area p a {
   color: rgb(0, 0, 0);
