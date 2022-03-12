@@ -421,8 +421,8 @@ progress {
   display: none !important;
 }
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .display-1 {
   font-size: calc(1.625rem + 4.5vw);
