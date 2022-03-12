@@ -559,6 +559,16 @@ progress {
   .container-sm {
     max-width: 540px;
   }
+  .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+  }
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
 }
 @media (min-width: 768px) {
   .container,

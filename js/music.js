@@ -1,6 +1,7 @@
-const audioContainerRoot = document.getElementById('audio-container-root');
-const playAllAudio = document.getElementById('play-all-audio');
-
+const audioContainerRoot = document.getElementById('playlist-tracks');
+const playAllAudio = document.getElementById('music__controller');
+const timer = document.getElementById('music__times');
+const nameObject = document.getElementById('music__name');
 const musics = [
   {
     name: 'Gayatri Mantra',
@@ -65,85 +66,77 @@ let shouldPlayAll = false;
 
 let audio = null;
 
+nameObject.querySelector('#music-title'
+).innerHTML = `${musics[0].name
+  }`;
+
 const updateCurrentTime = () => {
   if (currentPlayingAudioIndex === null) return;
   const audioContainer = document.querySelector(
     `[data-audio-index="${currentPlayingAudioIndex}"]`
   );
   console.log(audio.currentTime);
-  audioContainer.querySelector(
-    '#audio-duration'
-  ).innerHTML = `${secondsToString(Math.floor(audio.currentTime))}/${
+ 
+  
+
+timer.querySelector('#music-current-time'
+  ).innerHTML = `${secondsToString(Math.floor(audio.currentTime))
+    }`;
+  
+  timer.querySelector('#music-duration'
+  ).innerHTML = `${
     musics[currentPlayingAudioIndex].duration
-  }`;
+  }
+  `;
 };
 
 const getPlayingAudioHtml = ({ index, title, duration, currentTime }) => {
-  return `<div
-    class="list-group-item active"
-    aria-current="true"
-    id="audio-container"
-    data-audio-index="${index}"
-  >
-    <div
-      class="d-flex align-items-center justify-content-between"
-    >
-      <div class="d-flex align-items-center" id="audio-play-pause-button">
-        <button
-          class="btn btn-primary-outline rounded p-0"
-          
-          onclick="pauseAudio(${index})"
-        >
-          <i
-            class="bi bi-pause"
-            style="font-size: 2rem; color: white"
-          ></i>
-        </button>
-        <h6
-          style="font-size: 1rem"
-          class="mb-0 ms-1 h-6 text-white"
-          id="audio-name"
-        >
-          ${title}
-        </h6>
+  return `
+  
+  <li class="playlist__track playlist__track--current"data-audio-index="${index}
+     id="playlist-track-0"
+      data-src="https://raw.githubusercontent.com/miko-github/miko-github/gh_assets/assets/sounds/Homayoun%20Shajarian%20-%20Arayeshe%20Ghaliz.mp3"
+      data-id="0" onclick="pauseAudios(${index})"><span>${index+1}</span>
+      <div class="playlist__meta">
+      
+      <strong class="playlist__title"> ${title}</strong>
       </div>
-      <p class="mb-0" id="audio-duration">${currentTime}/${duration}</p>
-    </div>
-  </div>`;
+    </li>
+  `;
 };
-
+const mute = () => { 
+  console.log(audio.mute);
+  if (audio.mute) {
+    audio.mute = false;
+  }
+  else {
+    audio.mute = true;
+  }
+};
 const getAudioHtml = ({ index, title, duration }) => {
-  return `<div
-    class="list-group-item"
-    aria-current="true"
-    id="audio-container"
-    data-audio-index="${index}"
-  >
-    <div
-      class="d-flex align-items-center justify-content-between"
-    >
-      <div class="d-flex align-items-center" id="audio-play-pause-button">
-        <button
-          class="btn btn-primary-outline rounded p-0"
-          
-          onclick="playAudio(${index})"
-        >
-          <i class="bi bi-play-fill" style="font-size: 2rem"></i>
-        </button>
-        <h6
-          style="font-size: 1rem"
-          class="mb-0 ms-1 h-6"
-          id="audio-name"
-        >
-          ${title}
-        </h6>
+  return `
+  <li class="playlist__track" data-audio-index="${index}
+     id="playlist-track-0"
+      data-src="https://raw.githubusercontent.com/miko-github/miko-github/gh_assets/assets/sounds/Homayoun%20Shajarian%20-%20Arayeshe%20Ghaliz.mp3"
+      data-id="0" 
+      onclick="
+      playAudios(${index})">
+      
+        <span>${index + 1}</span>
+      <div class="playlist__meta">
+      
+      <strong class="playlist__title"> ${title}</strong>
+      
       </div>
-      <p class="mb-0" id="audio-duration">${duration}</p>
-    </div>
-  </div>`;
+
+    </li>
+  `;
+
 };
+var maxLength = 0;
 const reRender = () => {
   audioContainerRoot.innerHTML = '';
+  maxLength = 0;
   musicObjects.forEach((music, index) => {
     if (currentPlayingAudioIndex === index) {
       audioContainerRoot.insertAdjacentHTML(
@@ -165,7 +158,10 @@ const reRender = () => {
         })
       );
     }
+    maxLength++;
   });
+
+  console.log(maxLength);
 };
 reRender();
 
@@ -173,20 +169,6 @@ const playAudio = async (index) => {
   if (typeof index !== 'number') {
     const audioContainer = document.querySelector(
       `[data-audio-index="${currentPlayingAudioIndex}"]`
-    );
-    audioContainer.querySelector('#audio-play-pause-button button').remove();
-    audioContainer.querySelector('#audio-play-pause-button').insertAdjacentHTML(
-      'afterbegin',
-      `<button
-      class="btn btn-primary-outline rounded p-0"
-      
-      onclick="pauseAudio(${currentPlayingAudioIndex})"
-    >
-      <i
-        class="bi bi-pause"
-        style="font-size: 2rem; color: white"
-      ></i>
-    </button>`
     );
     return;
   }
@@ -198,24 +180,16 @@ const playAudio = async (index) => {
     pauseAudio(index);
     currentPlayingAudioIndex = null;
     playAllAudio.innerHTML = '';
-    playAllAudio.insertAdjacentHTML(
-      'beforeend',
-      `
-      <button
-        onclick="playAll()"
-        class="btn btn-primary"
-        type="button"
-      >
-        <i class="bi bi-play-fill"></i>
-        Play All
-      </button>
-    `
-    );
     return;
   }
   currentPlayingAudioIndex = index;
   audio = new Audio(musics[index].path);
   audio.play();
+
+  nameObject.querySelector('#music-title'
+  ).innerHTML = `${musics[index].name
+    }`;
+  
   reRender();
   audio.addEventListener('play', playAudio);
   audio.addEventListener('pause', pauseAudio);
@@ -229,17 +203,6 @@ const pauseAudio = () => {
   audio.pause();
   const audioContainer = document.querySelector(
     `[data-audio-index="${currentPlayingAudioIndex}"]`
-  );
-  audioContainer.querySelector('#audio-play-pause-button button').remove();
-  audioContainer.querySelector('#audio-play-pause-button').insertAdjacentHTML(
-    'afterbegin',
-    `<button
-      class="btn btn-primary-outline rounded p-0 text-white"
-      id="audio-play-pause-button"
-      onclick="playAudio(${currentPlayingAudioIndex})"
-    >
-      <i class="bi bi-play-fill" style="font-size: 2rem"></i>
-    </button>`
   );
 };
 
@@ -264,14 +227,56 @@ const playAll = () => {
   playAllAudio.insertAdjacentHTML(
     'beforeend',
     `
-      <button
-        onclick="pauseAll()"
-        class="btn btn-primary"
-        type="button"
-      >
-        <i class="bi bi-pause"></i>
-        Pause
-      </button>
+    <button id="music-play" onclick="pauseAll()" title="pause" class="music__btn music__btn--pause">
+       <i class="fa fa-pause"></i>
+  </button>
+    `
+  );
+};
+
+const PlayPrev = () => {
+  shouldPlayAll = true;
+  if (currentPlayingAudioIndex == 0) {
+    currentPlayingAudioIndex = 0;
+    console.log(currentPlayingAudioIndex);
+  }
+  else if (currentPlayingAudioIndex == null) {
+    
+    currentPlayingAudioIndex = 0;
+    console.log(currentPlayingAudioIndex);
+  }
+  else {
+    currentPlayingAudioIndex--;
+    console.log(currentPlayingAudioIndex);
+  }
+  playAudio(currentPlayingAudioIndex);
+  playAllAudio.innerHTML = '';
+  playAllAudio.insertAdjacentHTML(
+    'beforeend',
+    `
+    <button id="music-play" onclick="pauseAll()" title="pause" class="music__btn music__btn--pause">
+       <i class="fa fa-pause"></i>
+  </button>
+    `
+  );
+};
+const PlayNext = () => {
+  shouldPlayAll = true;
+  if (currentPlayingAudioIndex == maxLength-1) {
+    console.log(currentPlayingAudioIndex);
+  }
+  else {
+    currentPlayingAudioIndex++;
+    console.log(currentPlayingAudioIndex);
+  }
+  playAudio(currentPlayingAudioIndex);
+  playAllAudio.innerHTML = '';
+  playAllAudio.insertAdjacentHTML(
+    'beforeend',
+    `
+    <button id="music-play" onclick="pauseAll()" title="pause" class="music__btn music__btn--pause">
+       <i class="fa fa-pause"></i>
+  </button>
     `
   );
 };
@@ -283,14 +288,39 @@ const pauseAll = () => {
   playAllAudio.insertAdjacentHTML(
     'beforeend',
     `
-      <button
-        onclick="playAll()"
-        class="btn btn-primary"
-        type="button"
-      >
-        <i class="bi bi-play-fill"></i>
-        Resume
-      </button>
+  <button id="music-play" onclick="playAll()" title="pause" class="music__btn music__btn--pause">
+       <i class="fa fa-play"></i>
+  </button>
+    `
+  );
+};
+
+const playAudios = async (index) => {
+  currentPlayingAudioIndex = index;
+  shouldPlayAll = true;
+  playAudio(currentPlayingAudioIndex);
+  playAllAudio.innerHTML = '';
+  playAllAudio.insertAdjacentHTML(
+    'beforeend',
+    `
+    <button id="music-play" onclick="pauseAll()" title="pause" class="music__btn music__btn--pause">
+       <i class="fa fa-pause"></i>
+  </button>
+    `
+  );
+};
+
+const pauseAudios = async (index) => {
+  currentPlayingAudioIndex = index;
+  shouldPlayAll = false;
+  pauseAudio();
+  playAllAudio.innerHTML = '';
+  playAllAudio.insertAdjacentHTML(
+    'beforeend',
+    `
+  <button id="music-play" onclick="playAll()" title="pause" class="music__btn music__btn--pause">
+       <i class="fa fa-play"></i>
+  </button>
     `
   );
 };
