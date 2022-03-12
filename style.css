@@ -128,7 +128,6 @@ button:focus {
 a:focus,
 a:hover {
   color: #000000;
-  font-size: 20px;
   text-decoration: none;
 }
 .logo a:hover {
@@ -235,29 +234,6 @@ mark {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
-}
-blockquote {
-  background: #303030;
-  padding: 60px 130px;
-  padding-left: 160px;
-  color: #a8a8a8;
-  font-size: 24px;
-  font-weight: 700;
-  font-style: italic;
-  position: relative;
-  padding-top: 90px;
-  margin-bottom: 25px;
-}
-blockquote::before {
-  content: "";
-  background-image: url(img/icon/blockquote-quote.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  left: 12%;
-  top: 27%;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -505,21 +481,20 @@ textarea:focus {
         scroll to top
 *************************/
 #scrollUp {
-  background: #d41f1f;
+  background: #333;
   width: 40px;
   height: 40px;
   line-height: 40px;
-  bottom: 25px;
+  bottom: 43px;
   right: 25px;
   color: #fff;
   text-align: center;
   font-size: 25px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #scrollUp:hover {
-  /* background: #ffffff; */
+  background: #ff7900;
 }
 
 /*************************
@@ -1261,7 +1236,7 @@ Common Style CSS
     opacity 0s ease-in-out 0s;
 }
 .header-sticky.is-sticky {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 1);
   position: fixed;
   top: 0;
   left: 0;
@@ -1271,11 +1246,14 @@ Common Style CSS
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
+.header-middle-area {
+  padding: 10px 0 10px 0;
+}
 .header-sticky.is-sticky .header-menu-area nav > ul > li > a {
-  padding: 20px 0;
+  padding: 5px 0;
 }
 .header-sticky.is-sticky .shoppingcart-search-item > ul > li > a {
-  padding: 20px 0;
+  padding: 5px 0;
 }
 .header-sticky.is-sticky .item-total {
   top: 10px;
@@ -1374,8 +1352,8 @@ Common Style CSS
 }
 .header-menu-area > nav > ul > li:before,
 .footer-nav > nav > ul > li:before {
-  position: absolute;
-  content: "";
+  /* position: absolute; */
+  /* content: ""; */
   top: 50%;
   background: #dfdfdf;
   width: 30px;
@@ -1411,7 +1389,7 @@ Common Style CSS
   line-height: 30px;
   padding: 40px 0;
   font-family: "Montserrat", sans-serif;
-  color: #000000;
+  color: #7a7a7a;
   text-transform: uppercase;
 }
 .header-menu-area > nav > ul > li.active > a,
@@ -1624,6 +1602,15 @@ Common Style CSS
   margin-right: -20px;
   margin-bottom: -5px;
 }
+
+.logo img {
+  height: 26px;
+}
+.logo a {
+  font-size: 27px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
 /*--
     Header Bottotm Style 2 CSS
 --------------------------------------*/
@@ -1687,10 +1674,10 @@ Common Style CSS
   margin-bottom: 0;
 }
 .header-menu-3 {
-  border-top: 1px solid #ebebeb;
+  /* border-top: 1px solid #ebebeb; */
 }
 .header-menu-3 > nav > ul > li > a {
-  padding: 20px 0;
+  padding: 5px 0;
 }
 /*--
     Header Bottotm Style 4 CSS
@@ -2667,6 +2654,58 @@ Slider Style 4 CSS
   -webkit-animation-name: blurFadeIn;
   animation-name: blurFadeIn;
 }
+
+/*----------------------------------------*/
+/* Section Start */
+section.blockquote-section {
+  background-image: url(img/gods/jain-mandir.jpg);
+  background-repeat: no-repeat;
+  background-position: 40% center;
+  background-size: cover;
+  position: relative;
+}
+section.blockquote-section:before {
+  background-color: rgb(0 0 0 / 50%);
+  width: 100%;
+  height: 100%;
+  content: "";
+  display: block;
+  position: absolute;
+}
+section.blockquote-section figure {
+  padding-bottom: 64px;
+}
+.blockquote-footer {
+  font-size: 1rem;
+  color: #f8f9fa;
+}
+.blockquote-footer::before {
+  content: "— ";
+}
+blockquote {
+  /* background: #303030; */
+  padding: 60px 130px 18px 130px;
+  padding-left: 160px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  position: relative;
+  padding-top: 90px;
+  margin-bottom: 25px;
+}
+blockquote::before {
+  content: "";
+  background-image: url(img/icon/blockquote-quote.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 12%;
+  top: 27%;
+}
+/*----------------------------------------*/
 /*----------------------------------------*/
 /*  4. Banner Area CSS
 /*----------------------------------------*/
@@ -2853,9 +2892,9 @@ input {
   color: #beebf5;
 }
 .product-content {
-  padding-top: 20px;
+  padding-top: 10px;
   background: #fff;
-  padding-bottom: 60px;
+  padding-bottom: 10px;
 }
 .product-content > h4 {
   margin: 0;
@@ -4009,13 +4048,18 @@ h4.small-title {
 /*----------------------------------------*/
 /*  14. Footer Area CSS
 /*----------------------------------------*/
+/*----------------------------------------*/
+/*  14. Footer Area CSS
+/*----------------------------------------*/
 /*footer top are css*/
 .footer-logo {
   margin-bottom: 50px;
 }
+
 .footer-nav ul {
   margin-bottom: 30px;
 }
+
 .footer-nav > nav > ul > li {
   display: inline-block;
   list-style: none;
@@ -4024,6 +4068,7 @@ h4.small-title {
   line-height: 30px;
   position: relative;
 }
+
 .footer-nav > nav > ul > li > a {
   font-size: 13px;
   font-weight: 600;
@@ -4039,23 +4084,28 @@ h4.small-title {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .footer-nav > nav > ul > li:first-child > a {
   margin-left: 0;
 }
+
 .footer-nav > nav > ul > li > a:hover {
-  color: #24bddf;
+  color: #ff7900;
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
 }
+
 .footer-newsletter {
   width: 80%;
   position: relative;
   margin: 0 auto;
 }
+
 .footer-newsletter form {
   position: relative;
   overflow: hidden;
 }
+
 .footer-newsletter form input {
   border: 0;
   border-top: 2px solid #eaeaea;
@@ -4068,6 +4118,7 @@ h4.small-title {
   display: block;
   width: 100%;
 }
+
 .footer-newsletter form button {
   position: absolute;
   top: 0;
@@ -4086,19 +4137,175 @@ h4.small-title {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .footer-newsletter form button:hover {
-  color: #24bddf;
+  color: #ff7900;
 }
+
 /*footer bottom css*/
 .footer-bottom-area {
-  background: #ffffff;
+  background: #232323;
   padding: 30px 0;
 }
+
 .footer-bottom-area p {
   margin: 0;
   font-size: 13px;
   line-height: 1;
-  color: #000000;
+  color: #878686;
+}
+
+.footer-bottom-area p a {
+  color: #fff;
+}
+
+/*------------
+Footer style 2 CSS
+------------------------*/
+/*footer top css*/
+.single-width {
+  max-width: 80%;
+}
+
+.footer-title > h3 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 18px;
+  margin: 0 0 30px 0;
+}
+
+.footer-newslatter-2 > p {
+  font-size: 14px;
+  color: #adadad;
+  font-style: italic;
+  margin-bottom: 30px;
+  line-height: 25px;
+}
+
+.footer-newslatter-2 {
+  position: relative;
+}
+
+.footer-newslatter-2 input {
+  height: 35px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #4b4b4b;
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 120px 10px 10px;
+  display: block;
+  width: 100%;
+}
+
+.footer-newslatter-2 input::-webkit-input-placeholder {
+  color: #a2a2a2;
+}
+
+.footer-newslatter-2 input::-moz-placeholder {
+  color: #a2a2a2;
+}
+
+.footer-newslatter-2 input:-ms-input-placeholder {
+  color: #a2a2a2;
+}
+
+.footer-newslatter-2 input::placeholder {
+  color: #a2a2a2;
+}
+
+.footer-newslatter-2 form button {
+  position: absolute;
+  top: ;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  border: 0;
+  color: #a2a2a2;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+.footer-widget > li {
+  display: block;
+  list-style: none;
+  line-height: 30px;
+}
+
+.footer-widget > li > a {
+  color: #adadad;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-style: italic;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+.footer-widget > li > a:hover {
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  color: #fff;
+}
+
+/*Footer Bottom CSS*/
+.footer-bottom-menu > nav > ul > li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.footer-bottom-menu > nav > ul > li:last-child {
+  padding-right: 0;
+}
+
+.footer-bottom-menu > nav > ul > li > a:hover {
+  color: #ff7900;
+}
+
+.footer-bottom-item {
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+}
+
+.footer-bottom-area-2 p {
+  margin: 0;
+  color: #818181;
+  font-size: 13px;
+  display: inline-block;
+  line-height: 30px;
+}
+
+.copyright-text {
+  text-align: left;
+}
+
+.footer-bottom-area-2 p a {
+  color: #fff;
+}
+
+/*---------
+Footer Style 4 css
+----------------------*/
+/*footer bottom css*/
+.footer-bottom-menu-4 > nav > ul > li {
+  padding: 0 10px;
+}
+
+.footer-bottom-menu-4 > nav > ul > li > a {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.footer-bottom-menu-4 > nav > ul > li > a:hover {
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
 }
 .home {
   margin-bottom: 60px;
@@ -4213,15 +4420,8 @@ Footer style 2 CSS
   color: #818181;
   font-size: 13px;
   display: inline-block;
-  font-style: italic;
+  /* font-style: italic; */
   line-height: 30px;
-}
-.footer-bottom-menu > nav > ul > li > a:hover {
-  color: #fff;
-}
-.footer-bottom-item {
-  padding: 20px 0;
-  border-top: 1px solid #3e3e3e;
 }
 .footer-bottom-area-2 p {
   margin: 0;
@@ -4246,6 +4446,9 @@ Footer Style 4 css
 .footer-bottom-menu-4 > nav > ul > li > a:hover {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
+}
+.ptb-15 {
+  padding: 15px 0;
 }
 /*----------------------------------------*/
 /*  15. Modal Area CSS
@@ -6065,4 +6268,24 @@ thead {
 }
 .error-button a:hover {
   background: #24bddf;
+}
+.home .box .box-header h5 {
+  line-height: 31px;
+  font-weight: 300;
+  font-style: normal;
+  color: #222;
+  font-size: 20px;
+}
+.box-body p {
+  font-size: 16px;
+  line-height: 1.55em;
+  color: #777777;
+}
+.banner-video video {
+  min-width: 100%;
+  min-height: 490px;
+  max-width: 100%;
+  max-height: 490px;
+  object-fit: fill;
+  z-index: -1;
 }
