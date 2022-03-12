@@ -2905,13 +2905,14 @@ input {
   font-weight: 600;
   display: block;
   color: #252525;
-  text-transform: capitalize;
+  text-transform: uppercase;
   margin-bottom: 10px;
   line-height: 20px;
   font-family: "Raleway", sans-serif;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-align: center;
 }
 .product-content > h4 > a:hover,
 .one-sale-product-content > h4 > a:hover {
