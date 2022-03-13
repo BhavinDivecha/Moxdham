@@ -12,10 +12,9 @@
           
         event.preventDefault();
   
-        let thisForm = this;
-  
+          let thisForm = this;
           
-
+          thisForm.querySelector('.form-messege-sending').style.display = 'block';
           thisForm.querySelector('.form-messege').style.display = 'none';
   
         let formData = new FormData( thisForm );
@@ -43,6 +42,7 @@
               thisForm.querySelector('.form-messege').classList.add('success');
               thisForm.querySelector('.form-messege').classList.add('d-block');
               thisForm.querySelector('.form-messege').style.display = 'block';
+              thisForm.querySelector('.form-messege-sending').style.display = 'none';
               thisForm.querySelector('.form-messege').innerHTML = "Messaged Send...!";
               
               thisForm.reset(); 
@@ -56,7 +56,7 @@
   
     function displayError(thisForm, error) {
         thisForm.querySelector('.form-messege').style.display = 'block';
-
+        thisForm.querySelector('.form-messege-sending').style.display = 'none';
         thisForm.querySelector('.form-messege').innerHTML = "Messaged Failed...!";
         thisForm.querySelector('.form-messege').classList.add('d-block');
         submitButton.style.display = 'block';
