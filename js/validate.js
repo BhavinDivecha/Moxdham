@@ -58,7 +58,6 @@
           return response.text()
         } else {
           
-          throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
         }
       })
       .then(data => {
@@ -72,7 +71,6 @@
               thisForm.reset(); 
               submitButton.style.display = 'block';
         } else {
-          throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
         }
       })
       .catch((error) => {
@@ -80,7 +78,6 @@
     }
   
     function displayError(thisForm, error) {
-      thisForm.querySelector('.form-messege').innerHTML = "Send Failed...";
         thisForm.querySelector('.form-messege').classList.add('d-block');
         submitButton.style.display = 'block';
     }
