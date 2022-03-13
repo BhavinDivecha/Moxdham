@@ -50,7 +50,6 @@
   
     function php_email_form_submit(thisForm, action, formData) {
 
-        thisForm.querySelector('.form-messege').classList.remove('error');
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         if( response.ok ) {
