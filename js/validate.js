@@ -31,7 +31,6 @@
       .then(response => {
         if( response.ok ) {
           
-          return response.text()
         } else {
           
         }
@@ -39,6 +38,7 @@
       .then(data => {
           if (data.includes("success")) {
             
+              thisForm.querySelector('.form-messege').classList.remove('error');
               thisForm.querySelector('.form-messege').classList.add('success');
               thisForm.querySelector('.form-messege').innerHTML = "Messaged Send...!";
               
