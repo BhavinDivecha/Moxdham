@@ -14,41 +14,20 @@
   
         let thisForm = this;
   
-        let action = thisForm.getAttribute('action');
-          let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
           
 
           thisForm.querySelector('.form-messege').innerHTML = "Messaged Sending...";
         
-        if( ! action ) {
-          displayError(thisForm, 'The form action property is not set!')
-          return;
-        }
           thisForm.querySelector('.form-messege').classList.remove('d-block');
   
         let formData = new FormData( thisForm );
   
-        if ( recaptcha ) {
-          if(typeof grecaptcha !== "undefined" ) {
-            grecaptcha.ready(function() {
-              try {
-                grecaptcha.execute(recaptcha, {action: 'php_email_form_submit'})
-                .then(token => {
-                  formData.set('recaptcha-response', token);
-                  php_email_form_submit(thisForm, action, formData);
-                })
-              } catch(error) {
-              }
-            });
-          } else {
-          }
-        } else {
-          php_email_form_submit(thisForm, action, formData);
-        }
+          php_email_form_submit(thisForm, formData);
+        
       });
     });
   
-    function php_email_form_submit(thisForm, action, formData) {
+    function php_email_form_submit(thisForm, formData) {
 
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
