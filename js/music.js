@@ -2,53 +2,8 @@ const audioContainerRoot = document.getElementById('playlist-tracks');
 const playAllAudio = document.getElementById('music__controller');
 const timer = document.getElementById('music__times');
 const nameObject = document.getElementById('music__name');
-const musics = [
-  {
-    name: 'Gayatri Mantra',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra 2',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra 2',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra 2',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra 2',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra 2',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-  {
-    name: 'Gayatri Mantra 2',
-    path: 'sounds/gayatrimantra.mp3',
-    duration: '00:27',
-  },
-];
+var slider = document.getElementById('volume-control');
+
 
 function secondsToString(seconds) {
   var numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
@@ -76,7 +31,8 @@ const updateCurrentTime = () => {
     `[data-audio-index="${currentPlayingAudioIndex}"]`
   );
   console.log(audio.currentTime);
- 
+
+  audio.volume = slider.value / 100;
   
 
 timer.querySelector('#music-current-time'
@@ -105,14 +61,49 @@ const getPlayingAudioHtml = ({ index, title, duration, currentTime }) => {
   `;
 };
 const mute = () => { 
-  console.log(audio.mute);
-  if (audio.mute) {
-    audio.mute = false;
+
+  slider = null;
+const muteSong = document.getElementById('music__volume');
+  if (audio == null) return;
+  if (audio.muted) {
+    audio.muted = false;
+    audio.volume = 1;
+    muteSong.innerHTML = '';
+    muteSong.insertAdjacentHTML(
+    'beforeend',
+    `
+    <button id="music-volume-btn" onclick="mute()" class="music__volume_btn">
+    <i class="fa fa-volume-up"></i>
+</button>
+<input id="volume-control" class="music__volume_range" type="range" min="0" max="100" value="${audio.volume*100}">
+    `
+  );
   }
   else {
-    audio.mute = true;
+    audio.muted = true;
+    audio.volume = 0;
+    muteSong.innerHTML = '';
+    muteSong.insertAdjacentHTML(
+      'beforeend',
+      `
+      <button id="music-volume-btn" onclick="mute()" class="music__volume_btn">
+      <i class="fa fa-volume-down"></i>
+  </button>
+  <input id="volume-control" class="music__volume_range" type="range" min="0" max="100" value="0">
+      `
+    );
   }
+
+  slider = document.getElementById('volume-control');
+  slider.addEventListener("change", setVolume);
 };
+
+function setVolume() {
+  if (audio == null) return;
+  console.log(audio.volume+" volume");
+  audio.volume = slider.value / 100;
+}
+
 const getAudioHtml = ({ index, title, duration }) => {
   return `
   <li class="playlist__track" data-audio-index="${index}
@@ -186,6 +177,7 @@ const playAudio = async (index) => {
   audio = new Audio(musics[index].path);
   audio.play();
 
+
   nameObject.querySelector('#music-title'
   ).innerHTML = `${musics[index].name
     }`;
@@ -195,6 +187,7 @@ const playAudio = async (index) => {
   audio.addEventListener('pause', pauseAudio);
   audio.addEventListener('ended', endAudio);
   audio.addEventListener('durationchange', updateCurrentTime);
+  slider.addEventListener("change", setVolume);
 };
 
 const pauseAudio = () => {
@@ -323,4 +316,49 @@ const pauseAudios = async (index) => {
   </button>
     `
   );
+};
+const ShowHidePanel = () => {
+  var height = $("#music-playlist").height();
+  if( height > 0 ) {
+      $('#music-playlist').css('height','0');
+  } else {
+      var clone = $('#music-playlist').clone()
+                  .css({'position':'absolute','visibility':'hidden','height':'auto'})
+                  .addClass('slideClone')
+                  .appendTo('body');
+      
+      //$("#music-playlist").css({'position':'absolute','visibility':'hidden','height':'auto'});
+      //var newHeight = $("#music-playlist").height();
+      var newHeight = 310;
+      $(".slideClone").remove();
+      //$("#music-playlist").css({'position':'static','visibility':'visible','height':'0'});
+      $('#music-playlist').css('height',newHeight + 'px');
+  }
+};
+const RepeatSong = () => {
+  if (audio.loop) {
+    audio.loop = false;
+  }
+  else {
+    audio.loop = true;
+  }
+};
+
+
+const shuffleList = () => {
+  var currentIndex = musics.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = musics[currentIndex];
+    musics[currentIndex] = musics[randomIndex];
+    musics[randomIndex] = temporaryValue;
+  }
+  reRender();
 };

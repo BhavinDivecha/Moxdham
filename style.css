@@ -7050,7 +7050,7 @@ html [type="button"] {
   overflow: auto;
   height: 310px;
   margin: 0 5px;
-  padding: 10px 0 0 0;
+  /* padding: 10px 0 0 0; */
 }
 
 .playlist__track--current {

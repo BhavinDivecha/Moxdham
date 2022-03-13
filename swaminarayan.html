@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/namsteImg.png">
     <!--All Css Here-->
 
     <!-- Material Design Iconic Font CSS-->
@@ -568,27 +568,26 @@
 
                                                     <div class="music__mixin">
                                                         <!-- STATE : --[off | on: [once | all]] -->
-                                                        <button id="music-repeat"
+                                                        <button id="music-repeat" onclick="RepeatSong()"
                                                             class="music__repeat music__repeat--on music__repeat--all">
                                                             <!-- ALT : fa-[repeat, sync, sync-alt, retweet, retweet-alt, redo, redo-alt] -->
                                                             <i class="fa fa-repeat"></i>
                                                         </button>
                                                         <!-- STATE : --[off | on] -->
-                                                        <button id="music-shuffle" class="music__shuffle">
+                                                        <button id="music-shuffle" onclick="shuffleList()" class="music__shuffle">
                                                             <i class="fa fa-random"></i>
                                                         </button>
                                                         <!-- STATE : --[off | on] -->
-                                                        <button id="music-playlist-open" onclick="playAll()" class="music__playlist_open">
+                                                        <button id="music-playlist-open" onclick="ShowHidePanel()" class="music__playlist_open">
                                                             <i class="fa fa-music"></i>
                                                         </button>
                                                     </div>
-                                                    <div class="music__volume" title="50%">
+                                                    <div class="music__volume" id="music__volume" title="50%">
                                                         <button id="music-volume-btn" onclick="mute()" class="music__volume_btn">
                                                             <i class="fa fa-volume-up"></i>
                                                         </button>
-                                                        <div id="music-volume" class="music__volume_range" title="100%">
-                                                            <span class="music__volume_handle"></span>
-                                                        </div>
+                                                        
+                                                        <input id="volume-control" class="music__volume_range" type="range" min="0" max="100" value="100">
                                                     </div>
 
                                                     <div class="music__times" id="music__times">
@@ -1026,6 +1025,54 @@
                 <script src="js/plugins.js"></script>
                 <!--Main Js-->
                 <script src="js/main.js"></script>
+<!-- Sounds List -->
+                <script>const musics = [
+                    {
+                      name: 'Gayatri Mantra',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra 2',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra 2',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra 2',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra 2',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra 2',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                    {
+                      name: 'Gayatri Mantra 2',
+                      path: 'sounds/gayatrimantra.mp3',
+                      duration: '00:27',
+                    },
+                  ];</script>
                 <!--Music JS -->
                 <script src="./js/music.js"></script>
 </body>
