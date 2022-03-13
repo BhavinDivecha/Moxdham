@@ -83,7 +83,7 @@
     }
   
     function displayError(thisForm, error) {
-      thisForm.querySelector('.form-messege').innerHTML = error;
+      thisForm.querySelector('.form-messege').innerHTML = "Send Failed...";
         thisForm.querySelector('.form-messege').classList.add('d-block');
         submitButton.style.display = 'block';
     }
