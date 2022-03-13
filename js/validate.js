@@ -17,8 +17,6 @@
           
 
           thisForm.querySelector('.form-messege').innerHTML = "Messaged Sending...";
-        
-          thisForm.querySelector('.form-messege').classList.remove('d-block');
   
         let formData = new FormData( thisForm );
   
@@ -41,9 +39,7 @@
       .then(data => {
           if (data.includes("success")) {
             
-              thisForm.querySelector('.form-messege').classList.remove('error');
               thisForm.querySelector('.form-messege').classList.add('success');
-              thisForm.querySelector('.form-messege').classList.add('d-block');
               thisForm.querySelector('.form-messege').innerHTML = "Messaged Send...!";
               
               thisForm.reset(); 
