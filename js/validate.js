@@ -43,7 +43,7 @@
               thisForm.querySelector('.form-messege').classList.add('d-block');
               thisForm.querySelector('.form-messege').style.display = 'block';
               thisForm.querySelector('.form-messege-sending').style.display = 'none';
-              thisForm.querySelector('.form-messege').innerHTML = "Messaged Send...!";
+              thisForm.querySelector('.form-messege').innerHTML = "Message Send...!";
               
               thisForm.reset(); 
               submitButton.style.display = 'block';
@@ -57,7 +57,7 @@
     function displayError(thisForm, error) {
         thisForm.querySelector('.form-messege').style.display = 'block';
         thisForm.querySelector('.form-messege-sending').style.display = 'none';
-        thisForm.querySelector('.form-messege').innerHTML = "Messaged Failed...!";
+        thisForm.querySelector('.form-messege').innerHTML = "Message Failed...!";
         thisForm.querySelector('.form-messege').classList.add('d-block');
         submitButton.style.display = 'block';
     }
